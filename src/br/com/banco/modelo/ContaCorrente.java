@@ -26,10 +26,16 @@ public class ContaCorrente extends Cliente {
 		this.transacoes = new HashMap<String, Transacao>();
 	}
 
-	public void setTransaco() {
+	public void setTransaco(String tipoTransacao) {
 		
 	    
-		this.transacoes.put(CodigoTransacoes.geraCodigo(), new Transacao());
+		this.transacoes.put(CodigoTransacoes.geraCodigo(), new Transacao(tipoTransacao));
+	}
+	
+	public void transacoes() {
+		for (String codigo : this.transacoes.keySet()) {
+			System.out.println(codigo  + " " +this.transacoes.get(codigo));
+		}
 	}
 
 }

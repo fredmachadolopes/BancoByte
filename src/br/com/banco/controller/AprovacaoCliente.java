@@ -14,7 +14,10 @@ public class AprovacaoCliente {
 		if((nome.length() > 8) && (VerificaCPF.verifica(cpf)) && (valor > 99)) {
 			abrirConta = true;
 		}if(tipoConta.equals(TiposDeConta.CONTA_CORRENTE) && abrirConta) {
-			return new ContaCorrente(nome, cpf, dataNascimento, rg, valor);
+			 
+			ContaCorrente novoCliente = new ContaCorrente(nome, cpf, dataNascimento, rg, valor);
+			novoCliente.setTransaco("Criacao da conta Corrente");
+			return novoCliente;
 		}else if(tipoConta.equals(TiposDeConta.CONTA_POUPANCA) && abrirConta) {
 			
 		}

@@ -20,6 +20,8 @@ public class BancoMain {
 		
 		System.out.println(cliente);
 		
+		cliente.transacoes();
+		
 	
 	}
 
