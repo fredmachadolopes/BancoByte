@@ -1,4 +1,4 @@
-package br.com.banco.modelo;
+package br.com.banco.enumClientes;
 
 public enum TiposDeConta {
 	

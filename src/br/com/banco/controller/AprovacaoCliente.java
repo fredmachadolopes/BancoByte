@@ -2,9 +2,9 @@ package br.com.banco.controller;
 
 import java.time.LocalDate;
 
+import br.com.banco.enumClientes.TiposDeConta;
 import br.com.banco.modelo.Cliente;
 import br.com.banco.modelo.ContaCorrente;
-import br.com.banco.modelo.TiposDeConta;
 
 public class AprovacaoCliente {
 	

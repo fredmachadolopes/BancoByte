@@ -1,12 +1,11 @@
-package br.com.postgres.conexao;
+package br.com.postgre.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
-	
-	private String url = "jdbc:postgresql://localhost:5432/BancoByte";
+	private String url = "jdbc:postgresql://localhost:5432/postgres";
 	private String usuario = "postgres";
 	private String senha = "1F9r8e6d?";
 	private Connection connection;
@@ -29,6 +28,10 @@ public class ConnectionFactory {
 			System.out.println(e);
 			return null;
 		}
-		
+	
+	
+	
+	
 	}
+
 }
