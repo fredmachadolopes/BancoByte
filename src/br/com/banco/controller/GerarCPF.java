@@ -16,6 +16,7 @@ public class GerarCPF {
 	public String newCPF() {
 		int[] cpf = new int[11];
 		String cpf2 = "";
+		this.quantidade = 1;
 		while (0 < this.quantidade) {
 
 			for (int i = 0; i < cpf.length; i++) {

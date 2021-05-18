@@ -7,66 +7,75 @@ import br.com.banco.controller.CodigoTransacoes;
 import br.com.banco.controller.Transacao;
 import br.com.banco.intefaces.MetodosContas;
 
-public class ContaCorrente extends Cliente implements MetodosContas {
-
-	private static double jurosAoMes = .02;
-	private static double jurosPorTransacao = .01;
-	private static int quantidadeClienteCc;
+public class ContaPoupanca extends Cliente implements MetodosContas {
+	
+	private static double jurosAoMes = .01;
+	private static double jurosPorTransacao = .005;
+	private static int quantidadeClienteCp;
 	private double valor;
 	private String agencia = "0542-8";
-	private int conta = 50001;
+	private int conta = 1300001;
 	private String numeroConta;
 	private HashMap<String, Transacao> transacoes;
 
-	public ContaCorrente(String nomeCompleto, String cpf, LocalDate dataNascimento, String rg, double valor) {
+	public ContaPoupanca(String nomeCompleto, String cpf, LocalDate dataNascimento, String rg, double valor) {
 		super(nomeCompleto, cpf, dataNascimento, rg);
+		
 		this.valor = valor;
-		quantidadeClienteCc++;
-		this.conta += quantidadeClienteCc;
+		quantidadeClienteCp++;
+		this.conta += quantidadeClienteCp;
 		this.numeroConta = this.conta + " - 3";
 		this.transacoes = new HashMap<String, Transacao>();
+		
 	}
-    @Override
+
+	@Override
 	public void setTransaco(String tipoTransacao) {
 		
-	    
 		this.transacoes.put(CodigoTransacoes.geraCodigo(), new Transacao(tipoTransacao));
 	}
-    @Override
+
+	@Override
 	public void transacoes() {
 		for (String codigo : this.transacoes.keySet()) {
 			System.out.println(codigo  + " " +this.transacoes.get(codigo));
 		}
 	}
-
-	public static int getQuantidadeClienteCc() {
-		return quantidadeClienteCc;
+	public static int getQuantidadeClienteCp() {
+		return quantidadeClienteCp;
 	}
 	@Override
 	public double verSaldo() {
+		
 		return this.valor;
 	}
+
+	@Override
+	public String getAgencia() {
+		
+		return this.agencia;
+	}
+
 	@Override
 	public String getNumeroConta() {
-		return numeroConta;
-	}
 	
-
+		return this.numeroConta;
+	}
 
 	@Override
 	public void depositar(double valor) {
-		
-		
 		if(valor > 0) {
 			this.valor+= valor;
 		}else {
 			System.out.println("Este valor de deposito não é permitido R$ " + valor);
 		}
+		
 	}
+
 	@Override
 	public double sacar(double valor) {
 		if(verSaldo() > valor + valor * jurosPorTransacao) {
-			this.valor -= valor + valor * jurosPorTransacao;
+			this.valor -= valor +  valor * jurosPorTransacao;
 			
 			System.out.println("O valor R$ " +valor+ " foi retirado da conta");
 			return valor;
@@ -74,11 +83,6 @@ public class ContaCorrente extends Cliente implements MetodosContas {
 			System.out.println("Saldo insuficiente");
 			return 0;
 		}
-	}
-	@Override
-	public String getAgencia() {
-
-		return this.agencia;
 	}
 
 }

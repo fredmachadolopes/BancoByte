@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import br.com.banco.enumClientes.TiposDeConta;
 import br.com.banco.modelo.Cliente;
 import br.com.banco.modelo.ContaCorrente;
+import br.com.banco.modelo.ContaPoupanca;
 
 public class AprovacaoCliente {
 	
@@ -19,10 +20,12 @@ public class AprovacaoCliente {
 			novoCliente.setTransaco("Criacao da conta Corrente");
 			return novoCliente;
 		}else if(tipoConta.equals(TiposDeConta.CONTA_POUPANCA) && abrirConta) {
-			
+			ContaPoupanca novoCliente = new ContaPoupanca(nome, cpf, dataNascimento, rg, valor);
+			novoCliente.setTransaco("Criacao da conta Poupanca");
+			return novoCliente;
 		}
 		
-		
+		System.out.println(cpf + " " + abrirConta);
 		return null;
 	}
 

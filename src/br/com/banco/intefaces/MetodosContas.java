@@ -15,7 +15,8 @@ public interface MetodosContas {
 
 	public String getAgencia() ;
 
-	public int getConta();
+	
+	public String getNumeroConta() ;
 
 	
 	public void depositar(double valor) ;

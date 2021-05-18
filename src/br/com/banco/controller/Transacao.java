@@ -14,7 +14,7 @@ public class Transacao {
 
 	@Override
 	public String toString() {
-		return "Transacao [data=" + data + ", tipoDeTransacao=" + tipoDeTransacao + "]";
+		return "Transacao na data: " + data.getDayOfMonth() + "/" + data.getMonthValue() + "/" + data.getYear() +  ", tipoDeTransacao: " + tipoDeTransacao;
 	}
 
 	public LocalDateTime getData() {
